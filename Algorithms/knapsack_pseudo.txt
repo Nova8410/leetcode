@@ -1,0 +1,13 @@
+initialized a 2D table dp[0..n][0..W] with initial values are 0.
+zero-one-knapsack(W, n, weights, values):
+    // W: max capacity
+    // n: number of items
+    // weights: array of item weight
+    // values: array of item value
+    for i from 1 to n: 
+        for j from 1 to W:
+            dp[i, j] = dp[i-1, j]
+            if weights[i] <= j:
+                dp[i][j] = max(dp[i][j], dp[i-1][j - weights[i]] + values[i]) 
+                // bo vat i thi max capacity - w[i]
+    return dp[n][W]
